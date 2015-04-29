@@ -9,8 +9,10 @@ class MemberController extends Controller{
     public function showAllMembersAction (){
         //TODO Susanne
     }
-    public function getMemberByIdAction(){
-        //TODO Lollo
+    public function getMemberByIdAction($id){
+        $stm->bindparam(":id",$id);
+        $stm->execute();
+        $this->outputJSON($stm->fetch());
     }
     public function getMemberByEmailAction(){
         //TODO Lina
