@@ -10,6 +10,7 @@ class MemberController extends Controller{
         //TODO Susanne
     }
     public function getMemberByIdAction($id){
+        $stm = Database::get()->prepare("SELECT user_id, email FROM users WHERE user_id = :id");
         $stm->bindparam(":id",$id);
         $stm->execute();
         $this->outputJSON($stm->fetch());
